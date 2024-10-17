@@ -2,6 +2,10 @@ const form = document.querySelector('form')
 const result = document.querySelector('p')
 
 const splitBill = (friends, bill, tip) => {
+    if (friends === '' || bill === '' || tip === '') {
+        throw new Error('Alla fält måste vara ifyllda')
+    }
+
     const parsedFriends = parseInt(friends)
     if (isNaN(parsedFriends) || parsedFriends < 2) {
         throw new Error('Antal vänner måste vara ett nummer och minst 2')
@@ -25,11 +29,11 @@ const splitBill = (friends, bill, tip) => {
 
     const pricePerFriend = billWithTip / parsedFriends
 
-    const rest = billWithTip % parsedFriends
+    const rest = (billWithTip / 100) % parsedFriends
 
     return {
-        pricePerFriend: pricePerFriend / 100,
-        rest: rest / 100,
+        pricePerFriend: parseInt(pricePerFriend / 100),
+        rest: rest,
     }
 }
 
