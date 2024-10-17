@@ -5,6 +5,8 @@ const tip = document.querySelector(".input-tip");
 const result = document.querySelector("p");
 const total = document.querySelector(".total-sum");
 
+document.querySelector(".dricks").innerHTML = "0%";
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   result.innerHTML = `Ni är ${friends.value} antal gäster som ska betala ${sum.value} kronor. Ni har valt att dricksa ${tip.value} procent.`;
