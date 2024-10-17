@@ -1,0 +1,17 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.section-container {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  width: 20%;
+  margin: auto;
+}
+.section-btn {
+  padding: 1rem;
+}
