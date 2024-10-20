@@ -74,6 +74,7 @@ const tip = document.querySelector(".input-tip");
 const result = document.querySelector("p");
 const total = document.querySelector(".total-sum");
 const btn = document.querySelectorAll(".section-btn");
+const randomTip = document.querySelector(".random-tip");
 
 document.querySelector(".dricks").innerHTML = tip.value + "%";
 
@@ -82,6 +83,10 @@ btn.forEach((btn) => {
     event.preventDefault();
     if (btn.innerHTML !== "Tillbaka") {
       totalSum();
+    } else if (btn.innerHTML === "Tillbaka") {
+      friends.value = 0;
+      sum.value = 0;
+      tip.value = 0;
     }
     document.querySelector(".card").classList.toggle("flipped");
   });
@@ -90,11 +95,13 @@ btn.forEach((btn) => {
 document.querySelector(".random").addEventListener("click", (event) => {
   event.preventDefault();
   result.innerHTML = "";
-  let tips = +sum.value * (+tip.value / 100);
-  const randomGuest = Math.floor(Math.random() * +friends.value + 1);
-  total.innerHTML = `Unlucky one: Guest ${randomGuest}, Pays it all: ${
+  let randomProcent = Math.floor(Math.random() * 25) + 1;
+  let tips = +sum.value * (+randomProcent / 100);
+  const randomGuest = Math.floor(Math.random() * +friends.value) + 1;
+  total.innerHTML = `Unlucky one: <br/>Guest ${randomGuest} <br/> Pays it all: <br/>${
     +sum.value + +tips
-  }`;
+  } kronor`;
+  randomTip.innerHTML = `(Random dricks: ${randomProcent}%)`;
   document.querySelector(".card").classList.toggle("flipped");
 });
 
@@ -106,7 +113,9 @@ function totalSum() {
   let totalTip = +sum.value * (+tip.value / 100);
   let totalPrice = +totalTip + +sum.value;
   let eachPrice = +totalPrice / +friends.value;
-  total.innerHTML = `Den totala summan är ${totalPrice.toFixed(
+  total.innerHTML = `Den totala summan: <br/>${totalPrice.toFixed(
     2
-  )} kronor. Ni ska betala ${Math.ceil(eachPrice)} kronor var.`;
+  )} kronor.<br/> Ni ska betala: <br/> ${
+    friends.value > 0 ? Math.ceil(eachPrice) : 0
+  } kronor var.`;
 }

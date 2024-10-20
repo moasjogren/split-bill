@@ -41,6 +41,9 @@
 }
 .section-headline {
   font-size: 2rem;
+  letter-spacing: 2px;
+  text-shadow: 0 1px 2px;
+  color: rgb(56, 61, 57);
 }
 .section-article-container {
   font-size: 1.5rem;
@@ -49,10 +52,10 @@
   transform: translateY(22px);
 }
 .section-article-container:nth-of-type(2) {
-  transform: translateY(2px);
+  transform: translateY(-12px);
 }
 .section-article-container:nth-of-type(3) {
-  transform: translateY(-10px);
+  transform: translateY(-40px);
 }
 .input-friends,
 .input-sum {
@@ -100,7 +103,6 @@ input[type="range"] {
 form {
   display: flex;
   flex-direction: column;
-
   width: 80%;
   height: 100%;
   justify-content: space-between;
@@ -113,17 +115,70 @@ form {
 
 .section-btn {
   padding: 0.5em;
-  background-color: pink;
+  background-color: rgb(159, 228, 128);
   transform: translateY(50px);
   border-radius: 10px;
   border: none;
   outline: none;
   height: 40px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   cursor: pointer;
+  width: 80%;
+  align-self: center;
+  color: white;
+  transition: all 0.3s linear;
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 2px;
+}
+
+.section-btn:hover {
+  background-color: rgb(94, 161, 65);
 }
 
 .section-btn:active {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+.send {
+  margin-bottom: 50px;
+}
+
+.random {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 100px;
+  right: 40px;
+}
+.random:hover {
+  animation: dice 2s infinite;
+}
+.back {
+  justify-content: space-between;
+  padding: 40px;
+}
+.total-sum {
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  line-height: 50px;
+}
+.go-back {
+  margin-bottom: 100px;
+}
+
+@keyframes dice {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.2;
+  }
+
+  100% {
+    scale: 1;
+    rotate: 360deg;
+  }
 }

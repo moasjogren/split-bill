@@ -25,6 +25,7 @@
                 class="input-friends"
                 id="friends"
                 name="friends"
+                min="1"
               />
             </article>
             <!-- Summa -->
@@ -46,13 +47,16 @@
             </article>
 
             <!-- Submit -->
-            <button class="section-btn">Beräkna</button>
-            <button class="random">Slumpa</button>
+            <button class="section-btn send">Beräkna</button>
+            <button class="random">
+              <img src="./icons/dice.svg" alt="" />
+            </button>
           </form>
         </div>
         <div class="back">
           <p class="total-sum"></p>
-          <button class="section-btn">Tillbaka</button>
+          <p class="random-tip"></p>
+          <button class="section-btn go-back">Tillbaka</button>
         </div>
       </div>
     </section>
