@@ -15,7 +15,10 @@
           class="dollar"
         /> -->
         <div class="front">
-          <h1 class="section-headline">Splitta notan</h1>
+          <div class="title">
+            <h1 class="section-headline">Splitta notan</h1>
+            <img src="./icons/cloche.svg" alt="" />
+          </div>
           <form>
             <!-- Antal vänner -->
             <article class="section-article-container">
@@ -47,15 +50,25 @@
             </article>
 
             <!-- Submit -->
-            <button class="section-btn send">Beräkna</button>
-            <button class="random">
-              <img src="./icons/dice.svg" alt="" />
-            </button>
+            <div class="btns">
+              <button class="section-btn send">Beräkna</button>
+              <button class="random">
+                <img src="./icons/catdice.svg" alt="" />
+              </button>
+            </div>
           </form>
         </div>
         <div class="back">
+          <img src="./icons/cloche.svg" alt="" />
           <p class="total-sum"></p>
-          <p class="random-tip"></p>
+          <div class="random-box">
+            <p class="random-tip"></p>
+            <img
+              class="cat active"
+              src="./img/Skärmbild_2024-10-22_200041-removebg-preview.png"
+              alt=""
+            />
+          </div>
           <button class="section-btn go-back">Tillbaka</button>
         </div>
       </div>

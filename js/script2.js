@@ -75,6 +75,7 @@ const result = document.querySelector("p");
 const total = document.querySelector(".total-sum");
 const btn = document.querySelectorAll(".section-btn");
 const randomTip = document.querySelector(".random-tip");
+const cat = document.querySelector(".cat");
 
 document.querySelector(".dricks").innerHTML = tip.value + "%";
 
@@ -87,6 +88,9 @@ btn.forEach((btn) => {
       friends.value = 0;
       sum.value = 0;
       tip.value = 0;
+      document.querySelector(".dricks").innerHTML = tip.value + "%";
+      randomTip.innerHTML = "";
+      cat.classList.add("active");
     }
     document.querySelector(".card").classList.toggle("flipped");
   });
@@ -96,13 +100,21 @@ document.querySelector(".random").addEventListener("click", (event) => {
   event.preventDefault();
   result.innerHTML = "";
   let randomProcent = Math.floor(Math.random() * 25) + 1;
+
   let tips = +sum.value * (+randomProcent / 100);
   const randomGuest = Math.floor(Math.random() * +friends.value) + 1;
   total.innerHTML = `Unlucky one: <br/>Guest ${randomGuest} <br/> Pays it all: <br/>${
     +sum.value + +tips
   } kronor`;
-  randomTip.innerHTML = `(Random dricks: ${randomProcent}%)`;
+  randomTip.innerHTML = `(Random dricks: ${
+    randomProcent >= 20
+      ? `<span style="color: red; font-weight:bold; font-size:1.5rem;">${randomProcent}%</span>`
+      : randomProcent + "%"
+  })`;
   document.querySelector(".card").classList.toggle("flipped");
+  if (randomProcent >= 20) {
+    cat.classList.remove("active");
+  }
 });
 
 tip.addEventListener("input", function () {
